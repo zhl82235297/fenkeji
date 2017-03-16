@@ -829,9 +829,10 @@ use yii\helpers\Url;
      </div>
      <!--end .content_r--> 
     </div> 
-    <script src="<?=url::to('@web/js/Chart.min.js');?>" type="text/javascript"></script> 
-    <script src="<?=url::to('@web/js/profile.min.js');?>" type="text/javascript"></script> 
+    <script src="<?php url::to('@web/js/Chart.min.js');?>" type="text/javascript"></script> 
+ <script src="<?php url::to('@web/js/profile.min.js');?>" type="text/javascript"></script> 
     <input type="hidden" id="userid" name="userid" value="314873" /> 
+    <!--弹窗lightbox -----------------------------------------> 
     <div style="display:none;"> 
      <!-- 上传简历 --> 
      <div class="popup" id="uploadFile"> 

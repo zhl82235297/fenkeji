@@ -33,7 +33,11 @@ class site extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'email', 'pwd', 'last_time', 'add_time', 'last_ip'], 'required'],
+<<<<<<< HEAD
+            [['type','add_time'], 'integer'],
+=======
             [['type', 'last_time', 'add_time'], 'integer'],
+>>>>>>> c3acbf38914fd6c888a306dd346202ed46e735d3
             [['name', 'email'], 'string', 'max' => 40],
             [['pwd'], 'string', 'max' => 32],
             [['last_ip'], 'string', 'max' => 15]

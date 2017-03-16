@@ -67,12 +67,23 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {   
+<<<<<<< HEAD
         //var_dump(YII::$app->session->get('user'));die;
         if(!empty(YII::$app->session->get('user'))){
             return $this->renderPartial('index.html');
         }else{
             return $this->redirect(['login']);
        }
+=======
+        /*if(YII::$app->request->isPost){
+            $post=YII::$app->request->post();
+            $session=Yii::$app->session;
+            //$session->set();
+        }else{*/
+            //return $this->renderPartial('login.html');
+            return $this->renderPartial('index.html');
+       // }
+>>>>>>> c3acbf38914fd6c888a306dd346202ed46e735d3
         
     }
 
@@ -86,7 +97,14 @@ class SiteController extends Controller
         if(YII::$app->request->isPost){
             $post=YII::$app->request->post();
             $model=new site();
+<<<<<<< HEAD
+            $pwd=md5($post['pwd']);
+            $row=$model->find()->where(['email'=>$post['email']])->andWhere(['pwd'=>$pwd])->asArray()->one();
+            var_dump($row);die;
+            //var_dump($model->error());die;
+=======
             $row=$model->find()->where(['email'=>$post['email']])->andWhere(['pwd'=>md5($post['pwd'])])->asArray()->one();
+>>>>>>> c3acbf38914fd6c888a306dd346202ed46e735d3
             if(!empty($row)){
                 $session=Yii::$app->session;
                 $session->set('user',$row);
@@ -107,11 +125,22 @@ class SiteController extends Controller
             $data['email']=$post['email'];
             $data['type']=intval($post['type']);
             $data['add_time']=time();
+<<<<<<< HEAD
+            $data['last_time']=time();
+            $userIP = Yii::$app->request->userIP;
+            $data['last_ip']=$userIP;
+            $data['name']='未命名';
+            $model=new Site();
+            $sql = "insert into fen_admin(name,email,pwd,type,add_time,last_time,last_ip)values('{$data['name']}','{$data['email']}','{$data['pwd']}','{$data['type']}','{$data['add_time']}','{$data['last_time']}','{$data['last_ip']}')";
+           //$model->setAttributes($data);
+           //$model->insert();die;
+=======
             $data['last_login_time']=time();
             $userIP = Yii::$app->request->userIP;
             $data['last_login_ip']=$userIP;
             $model=new Site();
             $sql = "insert into fen_admin(name,email,pwd,type,add_time,last_time,last_ip)values('未起名','{$data['email']}','{$data['pwd']}','{$data['type']}','{$data['add_time']}','{$data['last_login_time']}','{$data['last_login_ip']}')";
+>>>>>>> c3acbf38914fd6c888a306dd346202ed46e735d3
             if(yii::$app->db->createCommand($sql)->execute()){
                 $session=Yii::$app->session;
                 $session->set('user',$data);
