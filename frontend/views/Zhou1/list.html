@@ -1,0 +1,25 @@
+<center>
+	<table>
+		<tr>
+			<td>
+				<td>路线</td>
+				<td>是否推荐</td>
+				<td>排序</td>
+			</td>
+		</tr>
+		<?php foreach($data as $v){ ?>
+			<tr>
+				<td>
+					<td><?=$v['rote']; ?></td>
+					<td>
+						<?php if($v['is_commend']==0){?>否
+						<?php }else{ ?>是
+						<?php } ?>
+					</td>
+					<td><?=$v['sort']; ?></td>
+				</td>
+			</tr>
+		<?php } ?>
+	</table>
+	<a href="index.php?r=zhou1/search">查看所有推荐</a>
+</center>
